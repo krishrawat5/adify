@@ -1,0 +1,390 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #3A0F63;
+  --text-main: #0f172a;
+  --text-secondary: #6b7280;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #3A0F63;
+  
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
+  body {
+    @apply font-sans;
+    color: var(--text-main);
+    background-color: #F8FAFC;
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Ensure interactive elements also show cursor */
+  a, button, [role="button"], input, textarea, select, .cursor-pointer {
+    cursor: auto;
+  }
+}
+
+.glass {
+  @apply bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
+}
+
+.premium-card {
+  @apply relative backdrop-blur-2xl border border-slate-200 transition-all duration-300 ease-out bg-white/80;
+  box-shadow: 
+    0 20px 50px -12px rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+}
+
+@media (min-width: 768px) {
+  .premium-card {
+    border-radius: 48px;
+  }
+}
+
+.premium-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    0 40px 80px -12px rgba(0, 0, 0, 0.1),
+    0 10px 30px rgba(58, 15, 99, 0.15);
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 40px 80px -12px rgba(0, 0, 0, 0.1), 0 10px 30px rgba(58, 15, 99, 0.15); }
+  50% { box-shadow: 0 40px 80px -12px rgba(0, 0, 0, 0.1), 0 15px 45px rgba(58, 15, 99, 0.25); }
+}
+
+@keyframes activeGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(58, 15, 99, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(58, 15, 99, 0.6); }
+}
+
+.active-node-glow {
+  animation: activeGlow 4s ease-in-out infinite;
+}
+
+.premium-card::before {
+  content: "";
+  @apply absolute inset-0 rounded-[inherit] pointer-events-none opacity-50;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+  z-index: 0;
+}
+
+.service-box {
+  @apply relative backdrop-blur-2xl border border-slate-200 transition-all duration-300 ease-out flex flex-col gap-4 bg-white/80;
+  padding: 32px 24px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+}
+
+@media (min-width: 768px) {
+  .service-box {
+    padding: 60px 80px;
+    border-radius: 30px;
+  }
+}
+
+.service-box:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    0 40px 80px -12px rgba(0, 0, 0, 0.1),
+    0 10px 30px rgba(58, 15, 99, 0.15);
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+.service-box::before {
+  content: "";
+  @apply absolute inset-0 rounded-[inherit] pointer-events-none opacity-50;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+  z-index: 0;
+}
+
+.glass-dark {
+  @apply bg-slate-900/10 backdrop-blur-md border border-white/10;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    to right,
+    #3A0F63 0%,
+    #6D28D9 25%,
+    #A78BFA 50%,
+    #6D28D9 75%,
+    #3A0F63 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 8s linear infinite;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.bg-gradient-brand {
+  background-color: var(--primary-color);
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  margin-bottom: 20px;
+  position: relative;
+  top: 0; /* remove upward shift */
+}
+
+.hero {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background: radial-gradient(
+    circle at 70% 50%,
+    rgba(58, 15, 99, 0.06),
+    transparent 60%
+  );
+  background-color: #F8FAFC;
+  @apply relative overflow-hidden w-full;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-top: 140px;
+    padding-bottom: 160px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    gap: 60px;
+  }
+}
+
+.container-custom {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+.hero-left {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  @apply text-left relative z-10;
+}
+
+@media (max-width: 1024px) {
+  .hero-left {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.hero-left h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: #0f172a;
+  @apply font-bold;
+}
+
+@media (max-width: 768px) {
+  .hero-left h1 {
+    font-size: 36px;
+  }
+}
+
+.hero-left h1 span {
+  @apply font-bold;
+  letter-spacing: -0.5px;
+  text-shadow: 
+    0 0 8px rgba(58, 15, 99, 0.15),
+    0 0 16px rgba(58, 15, 99, 0.08);
+}
+
+.service-card-premium {
+  transition: all 0.3s ease;
+  @apply border border-transparent cursor-pointer;
+}
+
+.service-card-premium:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.08), 
+    0 10px 30px rgba(58,15,99,0.15);
+  @apply bg-white/40 border-white/60;
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    to right,
+    #3A0F63 0%,
+    #6D28D9 25%,
+    #A78BFA 50%,
+    #6D28D9 75%,
+    #3A0F63 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 8s linear infinite, textGlowPulse 4s ease-in-out infinite;
+  display: inline-block;
+  font-weight: 700;
+}
+
+@keyframes textGlowPulse {
+  0%, 100% { 
+    text-shadow: 0 0 15px rgba(58, 15, 99, 0.05);
+    opacity: 0.98;
+  }
+  50% { 
+    text-shadow: 0 0 30px rgba(58, 15, 99, 0.15);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-left p {
+  font-size: 18px;
+  margin-top: 18px;
+  color: #6b7280;
+  @apply leading-relaxed font-medium;
+}
+
+.primary-button {
+  background-color: #3A0F63 !important;
+  color: white !important;
+  box-shadow: 
+    0 10px 25px rgba(58, 15, 99, 0.25),
+    0 0 10px rgba(58, 15, 99, 0.15);
+  transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 15px 35px rgba(58, 15, 99, 0.35),
+    0 0 20px rgba(58, 15, 99, 0.2);
+  animation: buttonGlow 4s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%, 100% { box-shadow: 0 15px 35px rgba(58, 15, 99, 0.35), 0 0 20px rgba(58, 15, 99, 0.2); }
+  50% { box-shadow: 0 15px 45px rgba(58, 15, 99, 0.45), 0 0 30px rgba(58, 15, 99, 0.3); }
+}
+
+.hero-right {
+  width: 45%;
+  height: 420px;
+  background: transparent !important;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  @apply relative z-10 flex items-center justify-center;
+}
+
+@media (max-width: 1024px) {
+  .hero-right {
+    width: 100%;
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-right {
+    height: 300px;
+  }
+}
+
+.hero-right::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(58, 15, 99, 0.1), transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Fallback overlay to hide Spline branding */
+.hero-right::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  right: -10px;
+  width: 300px;
+  height: 120px;
+  background: radial-gradient(circle at bottom right, #F8FAFC 0%, #F8FAFC 60%, transparent 100%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 1;
+}
+
+/* Aggressive branding removal */
+.hero-right a[href*="spline.design"],
+.hero-right div[style*="position: absolute"][style*="bottom"],
+.hero-right [class*="spline"] a {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* FIX SPLINE SIZE & INTEGRATION */
+.hero-right canvas {
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+  display: block;
+  outline: none;
+  border: none !important;
+}
