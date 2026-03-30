@@ -431,7 +431,7 @@ export default function App() {
       </header>
 
       {/* Clients Section (Animated Logo Cloud) */}
-      <section className="py-8 border-b border-slate-100 bg-[#f5f0ff] relative z-10">
+      <section className="py-8 border-b border-white relative z-10">
         <div className="container-custom">
           <div className="w-full">
             <h2 className="mb-5 text-center">
@@ -1056,7 +1056,7 @@ export default function App() {
       </section>
 
       {/* FAQs Section */}
-      <section id="faqs" className="py-8 bg-slate-50/50">
+      <section id="faqs" className="py-8">
         <div className="container-custom">
           <div className="grid lg:grid-cols-[1fr,2fr] gap-16">
             <div className="space-y-6">
