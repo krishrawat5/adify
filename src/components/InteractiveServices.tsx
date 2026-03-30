@@ -128,7 +128,7 @@ export const InteractiveServices: React.FC = () => {
           className="premium-card rounded-3xl md:rounded-[32px] p-6 md:p-12 lg:py-[40px] lg:px-[60px] overflow-hidden relative"
         >
 
-          <div className="text-center mb-8 relative z-10 pointer-events-none">
+          <div className="text-center mb-8 -mt-6 relative z-10 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -149,7 +149,7 @@ export const InteractiveServices: React.FC = () => {
             </motion.div>
           </div>
 
-          <div className="relative h-[480px] md:h-[520px] -mt-4 md:-mt-12 flex items-center justify-center z-10">
+          <div className="relative h-[480px] md:h-[520px] -mt-4 md:-mt-8 flex items-center justify-center z-10">
             {/* Orbiting Lines - Hidden on mobile for clarity */}
             {!isMobile && (
               <>
