@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
+import { BorderRotate } from './components/ui/animated-gradient-border';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -205,7 +206,7 @@ const WhyAdify = () => {
   return (
     <section id="why-adify" className="py-8 relative">
       <div className="container-custom">
-        <motion.div 
+        <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           whileHover={{ y: -4, scale: 1.01 }}
@@ -320,7 +321,7 @@ const WhyAdify = () => {
               </div>
             </div>
           </ParticleHero>
-        </motion.div>
+        </BorderRotate>
       </div>
     </section>
   );
@@ -452,7 +453,7 @@ export default function App() {
       {/* Strategic Marketing Detail Section */}
       <section id="strategic-marketing" className="py-8 relative">
         <div className="container-custom">
-          <motion.div 
+          <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4, scale: 1.01 }}
@@ -516,14 +517,14 @@ export default function App() {
 
             {/* Strategic Marketing Detail Section Shadow */}
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
-          </motion.div>
+          </BorderRotate>
         </div>
       </section>
 
       {/* Social Media Detail Section */}
       <section className="py-8 relative">
         <div className="container-custom">
-          <motion.div 
+          <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4, scale: 1.01 }}
@@ -600,14 +601,14 @@ export default function App() {
 
             {/* Subtle floating effect shadow */}
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
-          </motion.div>
+          </BorderRotate>
         </div>
       </section>
 
       {/* Automation Detail Section */}
       <section className="py-8 relative">
         <div className="container-custom">
-          <motion.div 
+          <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4, scale: 1.01 }}
@@ -671,14 +672,14 @@ export default function App() {
 
             {/* Subtle floating effect shadow */}
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
-          </motion.div>
+          </BorderRotate>
         </div>
       </section>
 
       {/* Web Development Detail Section */}
       <section id="web-development" className="py-8 relative">
         <div className="container-custom">
-          <motion.div 
+          <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4, scale: 1.01 }}
@@ -742,14 +743,14 @@ export default function App() {
 
             {/* Subtle floating effect shadow */}
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
-          </motion.div>
+          </BorderRotate>
         </div>
       </section>
 
       {/* SEO Detail Section */}
       <section id="seo" className="py-8 relative">
         <div className="container-custom">
-          <motion.div 
+          <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4, scale: 1.01 }}
@@ -813,14 +814,14 @@ export default function App() {
 
             {/* SEO Detail Section Shadow */}
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
-          </motion.div>
+          </BorderRotate>
         </div>
       </section>
 
       {/* Visual Branding Detail Section */}
       <section id="visual-branding" className="py-8 relative">
         <div className="container-custom">
-          <motion.div 
+          <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4, scale: 1.01 }}
@@ -884,14 +885,14 @@ export default function App() {
 
             {/* Subtle floating effect shadow */}
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
-          </motion.div>
+          </BorderRotate>
         </div>
       </section>
 
       {/* Client Success Stories Section */}
       <section id="clients" className="py-8 relative overflow-hidden">
         <div className="container-custom">
-          <motion.div 
+          <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4, scale: 1.01 }}
@@ -930,14 +931,14 @@ export default function App() {
             
             {/* Decorative Shadow */}
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
-          </motion.div>
+          </BorderRotate>
         </div>
       </section>
 
       {/* Global Presence Section */}
       <section id="global" className="py-8 relative overflow-hidden">
         <div className="container-custom">
-          <motion.div 
+          <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4, scale: 1.01 }}
@@ -1007,7 +1008,7 @@ export default function App() {
             
             {/* Decorative Shadow */}
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
-          </motion.div>
+          </BorderRotate>
         </div>
       </section>
 
@@ -1026,7 +1027,7 @@ export default function App() {
 
           <div className="grid md:grid-cols-3 gap-10">
             {[1, 2, 3].map(i => (
-              <motion.div 
+              <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
                 key={i} 
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1049,7 +1050,7 @@ export default function App() {
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">CEO, LuxeDecor</p>
                   </div>
                 </div>
-              </motion.div>
+              </BorderRotate>
             ))}
           </div>
         </div>
@@ -1071,7 +1072,7 @@ export default function App() {
               { q: 'Do you handle creative production?', a: 'Yes! We have a full creative studio that produces high-converting video and static assets.' },
               { q: 'What is your minimum ad spend requirement?', a: 'We typically work with brands spending at least ₹2,0,000 per month to ensure statistical significance.' }
             ].map((faq, i) => (
-              <motion.div 
+              <BorderRotate animationMode="rotate-on-hover" borderRadius={32} 
                 key={i} 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1089,7 +1090,7 @@ export default function App() {
                     {faq.a}
                   </div>
                 </details>
-              </motion.div>
+              </BorderRotate>
             ))}
             </div>
           </div>
