@@ -125,47 +125,8 @@ export const InteractiveServices: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="premium-card rounded-3xl md:rounded-[48px] p-6 md:p-12 lg:py-[80px] lg:px-[80px] overflow-hidden relative"
+          className="premium-card rounded-3xl md:rounded-[32px] p-6 md:p-12 lg:py-[40px] lg:px-[60px] overflow-hidden relative"
         >
-          {/* Grid Background Effect from HeroSection */}
-          <div 
-            className="absolute inset-0 bg-[url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png')] bg-no-repeat bg-cover bg-center opacity-[0.2] pointer-events-none" 
-            style={{ 
-              filter: 'hue-rotate(260deg) brightness(0.7) contrast(1.1)', // Darker purple shift
-              mixBlendMode: 'multiply'
-            }}
-          />
-          
-          {/* Purple Gradient Overlay - Darker and more prominent */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-primary/5 to-primary/25 pointer-events-none" />
-
-          {/* Pulsing Glowness Effect */}
-          <motion.div
-            animate={{
-              opacity: [0.3, 0.6, 0.3],
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(109,40,217,0.2)_0%,_transparent_70%)] pointer-events-none z-0"
-          />
-
-          {/* Animated Light Beam */}
-          <motion.div
-            animate={{
-              x: ['-100%', '100%'],
-              opacity: [0, 0.2, 0],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none z-0"
-          />
 
           <div className="text-center mb-16 relative z-10">
             <motion.div
@@ -319,10 +280,6 @@ export const InteractiveServices: React.FC = () => {
               )}
             </AnimatePresence>
           </div>
-
-          {/* Decorative Elements inside the card */}
-          <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
-          <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
         </motion.div>
       </div>
     </section>
