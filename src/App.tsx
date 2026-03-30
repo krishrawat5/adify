@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import CustomCursor from './components/CustomCursor';
 import MagneticButton from './components/MagneticButton';
+import AdifyLogo from './components/AdifyLogo';
 import { InteractiveServices } from './components/InteractiveServices';
 import { GeometricBackground } from '@/components/ui/shape-landing-hero';
 import Spline from '@splinetool/react-spline';
@@ -28,6 +29,18 @@ import Spline from '@splinetool/react-spline';
 import { CircularTestimonials } from './components/ui/circular-testimonials';
 import { InteractiveGlobe } from './components/ui/interactive-globe';
 import { ParticleHero } from './components/ui/particle-hero';
+import { LogoCloud } from './components/ui/logo-cloud-4';
+
+const services = [
+  "Web Development",
+  "AI Automation",
+  "Social Media Marketing",
+  "Performance Ads",
+  "Lead Generation",
+  "Strategic Marketing",
+  "SEO Optimization",
+  "Data Analytics",
+];
 
 const globeMarkers = [
   { lat: 28.61, lng: 77.21, label: "India" },
@@ -91,17 +104,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['Services', 'Clients', 'Why Adify', 'Reviews', 'FAQs'];
+  const navItems = ['Services', 'Clients', 'About', 'Why Adify', 'Reviews', 'FAQs'];
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-4' : 'py-8'} header`}>
       <div className="container-custom">
         <div className={`flex items-center justify-between transition-all duration-500 ${isScrolled ? 'glass rounded-full px-12 py-3 shadow-sm' : 'py-2'}`}>
-          <div className="flex items-center gap-3 group cursor-pointer">
-            <div className="w-9 h-9 bg-slate-900 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105">
-              <Zap className="text-white w-5 h-5" />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-slate-900">Adify</span>
+          <div className="flex items-center group cursor-pointer">
+            <AdifyLogo height={34} className="transition-transform duration-300 group-hover:scale-[1.02]" />
           </div>
 
           <div className="hidden md:flex items-center gap-10">
@@ -420,13 +430,19 @@ export default function App() {
         </motion.div>
       </header>
 
-      {/* Clients Section (Logo Strip) */}
+      {/* Clients Section (Animated Logo Cloud) */}
       <section className="py-12 border-b border-slate-100 bg-[#f5f0ff] relative z-10">
         <div className="container-custom">
-          <div className="flex flex-wrap justify-start items-center gap-16 md:gap-24 opacity-30 grayscale hover:opacity-60 transition-all duration-500">
-            {['Shopify', 'Meta', 'Google', 'Amazon', 'Stripe'].map(brand => (
-              <span key={brand} className="text-xl font-bold text-slate-900 tracking-tighter">{brand}</span>
-            ))}
+          <div className="w-full">
+            <h2 className="mb-5 text-center">
+              <span className="block font-medium text-2xl text-slate-500">
+                Our Expertise
+              </span>
+              <span className="font-black text-2xl text-primary tracking-tight md:text-3xl">
+                End-to-End Solutions
+              </span>
+            </h2>
+            <LogoCloud services={services} />
           </div>
         </div>
       </section>
