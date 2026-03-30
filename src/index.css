@@ -25,7 +25,11 @@
   body {
     @apply font-sans;
     color: var(--text-main);
-    background-color: #faf5ff; /* Tailwind purple-50 for a clean light purple */
+    background-color: #faf5ff; /* Base light purple */
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(167, 139, 250, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 85% 30%, rgba(109, 40, 217, 0.08) 0%, transparent 50%);
+    background-attachment: fixed;
     min-height: 100vh;
     overflow-x: hidden;
     width: 100%;
