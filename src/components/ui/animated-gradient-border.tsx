@@ -39,7 +39,7 @@ const BorderRotate: React.FC<BorderRotateProps> = ({
   animationMode = 'auto-rotate',
   animationSpeed = 4,
   gradientColors = defaultGradientColors,
-  backgroundColor = 'rgba(255, 255, 255, 0.8)', // Matching premium-card typical bg
+  backgroundColor = '', 
   borderWidth = 1,
   borderRadius = 32,
   style = {},
@@ -59,18 +59,13 @@ const BorderRotate: React.FC<BorderRotateProps> = ({
     }
   };
  
-  const combinedStyle: CSSProperties = {
-    '--gradient-primary': gradientColors.primary,
-    '--gradient-secondary': gradientColors.secondary,
-    '--gradient-accent': gradientColors.accent,
-    '--bg-color': backgroundColor,
-    '--border-width': `${borderWidth}px`,
-    '--border-radius': `${borderRadius}px`,
+  const borderStyle: CSSProperties = {
     '--animation-duration': `${animationSpeed}s`,
-    border: `${borderWidth}px solid transparent`,
+    position: 'absolute',
+    inset: 0,
+    padding: `${borderWidth}px`,
     borderRadius: `${borderRadius}px`,
-    backgroundImage: `
-      linear-gradient(${backgroundColor}, ${backgroundColor}),
+    background: `
       conic-gradient(
         from var(--gradient-angle, 0deg),
         ${gradientColors.primary} 0%,
@@ -85,18 +80,31 @@ const BorderRotate: React.FC<BorderRotateProps> = ({
         ${gradientColors.primary} 90%
       )
     `,
-    backgroundClip: 'padding-box, border-box',
-    backgroundOrigin: 'padding-box, border-box',
-    ...style,
+    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+    WebkitMaskComposite: 'xor',
+    mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+    maskComposite: 'exclude',
+    pointerEvents: 'none',
+    zIndex: 0,
   } as CSSProperties;
  
   return (
     <motion.div
-      className={`gradient-border-component ${getAnimationClass()} ${className}`}
-      style={combinedStyle}
+      className={`relative ${className}`}
+      style={{
+        ...style,
+        borderRadius: `${borderRadius}px`,
+        backgroundColor: backgroundColor || undefined,
+      }}
       {...props}
     >
-      {children}
+      <div 
+        className={`${getAnimationClass()}`}
+        style={borderStyle}
+      />
+      <div className="relative z-10 w-full h-full">
+        {children}
+      </div>
     </motion.div>
   );
 };
