@@ -25,7 +25,7 @@ import MagneticButton from './components/MagneticButton';
 import AdifyLogo from './components/AdifyLogo';
 import { InteractiveServices } from './components/InteractiveServices';
 import AboutAdify from './components/AboutAdify';
-import { InteractiveRobotSpline } from '@/components/ui/interactive-3d-robot';
+import { GeometricBackground } from '@/components/ui/shape-landing-hero';
 import Spline from '@splinetool/react-spline';
 
 import { CircularTestimonials } from './components/ui/circular-testimonials';
@@ -251,11 +251,8 @@ export default function App() {
 
       {/* Hero Section */}
       <header id="home" className="hero relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-70">
-          <InteractiveRobotSpline 
-            scene="https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode" 
-            className="w-full h-full"
-          />
+        <div className="absolute inset-0 z-0">
+          <GeometricBackground />
         </div>
         <div className="container-custom flex flex-col lg:flex-row items-center justify-start gap-12 lg:gap-24 relative z-10">
           <motion.div 
@@ -313,10 +310,7 @@ export default function App() {
               className="w-full h-full cursor-pointer relative z-10 flex items-center justify-center"
               data-cursor-text="Explore"
             >
-              <Spline 
-                scene="https://prod.spline.design/oC7n6seueKPBIcUA/scene.splinecode"
-                style={{ background: 'transparent', width: '100%', height: '100%' }}
-              />
+              {/* Removed robot Spline component based on request, keeping space empty for now */}
             </motion.div>
             
             {/* AGGRESSIVE BRANDING MASK - Primary Glow */}
