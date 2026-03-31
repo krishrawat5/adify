@@ -94,6 +94,8 @@ const services: ServiceNode[] = [
   }
 ];
 
+import OrbitingServices from './ui/orbiting-skills';
+
 export const InteractiveServices: React.FC = () => {
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -105,13 +107,28 @@ export const InteractiveServices: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="premium-card rounded-3xl md:rounded-[32px] p-6 md:p-12 lg:py-[40px] lg:px-[60px] overflow-hidden relative"
+          className="premium-card rounded-3xl md:rounded-[32px] overflow-hidden relative"
         >
+          {/* Section Header */}
+          <div className="text-center mt-12 mb-4 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-4 flex flex-col items-center"
+            >
+              <h2 className="text-4xl md:text-7xl font-bold text-slate-900 tracking-tight">
+                Our <span className="text-gradient">Services.</span>
+              </h2>
+              <p className="text-slate-600 text-lg max-w-2xl font-medium px-6">
+                Explore how we help brands scale with performance-driven systems
+              </p>
+            </motion.div>
+          </div>
 
-          {/* Content removed to leave the box blank, as requested */}
-
-          <div className="relative h-[200px] flex items-center justify-center z-10">
-            {/* Box is now blank as requested */}
+          <div className="relative min-h-[400px] md:min-h-[550px] flex items-center justify-center z-10 -mt-12 md:-mt-16">
+            <OrbitingServices />
           </div>
         </motion.div>
       </div>
