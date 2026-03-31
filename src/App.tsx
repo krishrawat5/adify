@@ -27,6 +27,7 @@ import { InteractiveServices } from './components/InteractiveServices';
 import AboutAdify from './components/AboutAdify';
 import { GeometricBackground } from '@/components/ui/shape-landing-hero';
 import Spline from '@splinetool/react-spline';
+import { InteractiveRobotSpline } from '@/components/ui/interactive-3d-robot';
 
 import { CircularTestimonials } from './components/ui/circular-testimonials';
 import { InteractiveGlobe } from './components/ui/interactive-globe';
@@ -310,7 +311,10 @@ export default function App() {
               className="w-full h-full cursor-pointer relative z-10 flex items-center justify-center"
               data-cursor-text="Explore"
             >
-              {/* Removed robot Spline component based on request, keeping space empty for now */}
+              <InteractiveRobotSpline 
+                scene="https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode"
+                className="w-full h-full"
+              />
             </motion.div>
             
             {/* AGGRESSIVE BRANDING MASK - Primary Glow */}
