@@ -48,7 +48,7 @@ export function SimpleHeader() {
 
         <Sheet open={open} onOpenChange={setOpen}>
           <div className="flex items-center gap-4 lg:hidden">
-            <Button size="icon" variant="outline" className="rounded-full border-slate-200">
+            <Button size="icon" variant="outline" className="rounded-full border-slate-200" onClick={() => setOpen(!open)}>
               <MenuToggle
                 strokeWidth={2.5}
                 open={open}
