@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { 
@@ -26,7 +26,7 @@ import AdifyLogo from './components/AdifyLogo';
 import { InteractiveServices } from './components/InteractiveServices';
 import AboutAdify from './components/AboutAdify';
 import { GeometricBackground } from '@/components/ui/shape-landing-hero';
-import Spline from '@splinetool/react-spline';
+const Spline = lazy(() => import('@splinetool/react-spline'));
 
 import { CircularTestimonials } from './components/ui/circular-testimonials';
 import { InteractiveGlobe } from './components/ui/interactive-globe';
@@ -251,8 +251,13 @@ export default function App() {
 
       {/* Hero Section */}
       <header id="home" className="hero relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <GeometricBackground />
+        <div className="absolute inset-0 z-0 opacity-50 mix-blend-multiply">
+          <Suspense fallback={<div className="w-full h-full animate-pulse bg-slate-100" />}>
+            <Spline 
+              scene="https://prod.spline.design/oC7n6seueKPBIcUA/scene.splinecode"
+              style={{ width: '100%', height: '100%' }}
+            />
+          </Suspense>
         </div>
         <div className="container-custom flex flex-col lg:flex-row items-center justify-start gap-12 lg:gap-24 relative z-10">
           <motion.div 
@@ -302,23 +307,8 @@ export default function App() {
           </div>
         </motion.div>
 
-          <div className="hero-right relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9, x: 30 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full h-full cursor-pointer relative z-10 flex items-center justify-center"
-              data-cursor-text="Explore"
-            >
-              <Spline 
-                scene="https://prod.spline.design/oC7n6seueKPBIcUA/scene.splinecode"
-                style={{ background: 'transparent', width: '100%', height: '100%' }}
-              />
-            </motion.div>
-            
-            {/* AGGRESSIVE BRANDING MASK - Primary Glow */}
-            <div className="absolute -bottom-2 -right-4 w-[260px] h-[80px] bg-primary/20 blur-3xl z-[9999] pointer-events-none opacity-95" />
-
+          <div className="hero-right relative z-10 hidden lg:block">
+            {/* Kept empty but structure intact so the text layout 'Scale Smarter' stays on the left */}
             {/* Background Glow - Seamless blend */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-primary/5 blur-[120px] -z-10 rounded-full opacity-40" />
           </div>
