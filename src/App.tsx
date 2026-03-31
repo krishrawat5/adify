@@ -944,7 +944,7 @@ export default function App() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="premium-card rounded-3xl md:rounded-[32px] p-6 md:p-12 lg:py-[40px] lg:px-[60px] overflow-hidden"
           >
-            <div className="grid lg:grid-cols-2 gap-24 items-center relative z-10">
+            <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-24 items-center relative z-10">
               {/* Left Side: Content */}
               <motion.div
                 initial={{ opacity: 0, x: -40 }}
@@ -954,7 +954,7 @@ export default function App() {
                 className="space-y-8"
               >
                 <div className="space-y-4">
-                  <h2 className="text-4xl md:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1]">
+                  <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-[1.2] whitespace-nowrap">
                     Scaling Brands <span className="text-gradient">Beyond Borders.</span>
                   </h2>
                   <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
