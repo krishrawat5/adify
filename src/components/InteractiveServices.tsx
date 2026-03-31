@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BorderRotate } from './ui/animated-gradient-border';
 import { 
   Target, 
   Users, 
@@ -121,7 +120,7 @@ export const InteractiveServices: React.FC = () => {
   return (
     <section id="services" className="py-8 relative overflow-hidden">
       <div className="container-custom">
-        <BorderRotate animationMode="rotate-on-hover" borderRadius={32}
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -281,7 +280,7 @@ export const InteractiveServices: React.FC = () => {
               )}
             </AnimatePresence>
           </div>
-        </BorderRotate>
+        </motion.div>
       </div>
     </section>
   );

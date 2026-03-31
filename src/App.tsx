@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
-import { BorderRotate } from './components/ui/animated-gradient-border';
 import { 
   ArrowRight, 
   CheckCircle2, 
