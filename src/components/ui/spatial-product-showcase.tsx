@@ -1,15 +1,14 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'motion/react';
 import {
-  Battery,
-  Sliders,
-  ChevronRight,
-  Zap,
-  Bluetooth,
-  Wifi,
-  Music,
+  Rocket,
+  ArrowRight,
+  TrendingUp,
+  Target,
+  PenTool,
+  Sparkles,
   LucideIcon,
 } from 'lucide-react';
 
@@ -25,7 +24,7 @@ export interface FeatureMetric {
   icon: LucideIcon;
 }
 
-export interface ProductData {
+export interface ProfileData {
   id: ProductId;
   label: string; // Display name for the switcher
   title: string;
@@ -37,46 +36,46 @@ export interface ProductData {
     ring: string;     // Tailwind border color for rings
   };
   stats: {
-    connectionStatus: string;
-    batteryLevel: number;
+    status: string;
+    focusLevel: number;
   };
   features: FeatureMetric[];
 }
 
-// Default Data (Easy to Modify Here)
-const PRODUCT_DATA: Record<ProductId, ProductData> = {
+// Default Data
+const PROFILE_DATA: Record<ProductId, ProfileData> = {
   left: {
     id: 'left',
-    label: 'Left',
-    title: 'Spatial Anchor',
-    description: 'The primary node for binaural synchronization. Handles low-latency transmission and anchors the spatial audio soundstage.',
-    image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&q=80', // placeholder earbud Left
+    label: 'Adil',
+    title: 'Adil Ali',
+    description: 'Founder & Visionary behind Adify. Spearheading strategic growth, full-stack development, and data-driven marketing systems that scale brands beyond borders.',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80', // Placeholder
     colors: {
-      gradient: 'from-blue-600 to-indigo-900',
-      glow: 'bg-blue-500',
-      ring: 'border-l-blue-500/50',
+      gradient: 'from-[#3A0F63] to-purple-800',
+      glow: 'bg-[#3A0F63]',
+      ring: 'border-l-[#3A0F63]/50',
     },
-    stats: { connectionStatus: 'Connected', batteryLevel: 82 },
+    stats: { status: 'Building Systems', focusLevel: 100 },
     features: [
-      { label: 'Latency', value: 12, icon: Zap },
-      { label: 'Sync Rate', value: 98, icon: Wifi },
+      { label: 'Strategy', value: 98, icon: Target },
+      { label: 'Execution', value: 95, icon: TrendingUp },
     ],
   },
   right: {
     id: 'right',
-    label: 'Right',
-    title: 'Vocal Clarity',
-    description: 'Optimized for high-frequency detail and voice pickup. Contains the beamforming microphone array for crystal clear calls.',
-    image: 'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=800&q=80', // placeholder earbud Right
+    label: 'Co-Founder',
+    title: 'Creative Director',
+    description: 'Co-Founder & Design Lead. Crafting premium visual identities, engaging social experiences, and cohesive brand narratives that convert.',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&q=80', // Placeholder
     colors: {
-      gradient: 'from-emerald-600 to-teal-900',
-      glow: 'bg-emerald-500',
-      ring: 'border-r-emerald-500/50',
+      gradient: 'from-violet-600 to-indigo-800',
+      glow: 'bg-violet-600',
+      ring: 'border-r-violet-600/50',
     },
-    stats: { connectionStatus: 'Connected', batteryLevel: 74 },
+    stats: { status: 'Crafting Brands', focusLevel: 98 },
     features: [
-      { label: 'Bitrate', value: 94, icon: Bluetooth },
-      { label: 'Clarifier', value: 88, icon: Music },
+      { label: 'Creativity', value: 99, icon: Sparkles },
+      { label: 'Design', value: 96, icon: PenTool },
     ],
   },
 };
@@ -110,10 +109,10 @@ const ANIMATIONS = {
   image: (isLeft: boolean): Variants => ({
     initial: {
       opacity: 0,
-      scale: 1.5,
+      scale: 1.2,
       filter: 'blur(15px)',
-      rotate: isLeft ? -30 : 30,
-      x: isLeft ? -80 : 80,
+      rotate: isLeft ? -10 : 10,
+      x: isLeft ? -40 : 40,
     },
     animate: {
       opacity: 1,
@@ -125,7 +124,7 @@ const ANIMATIONS = {
     },
     exit: {
       opacity: 0,
-      scale: 0.6,
+      scale: 0.8,
       filter: 'blur(20px)',
       transition: { duration: 0.25 },
     },
@@ -141,8 +140,8 @@ const BackgroundGradient = ({ isLeft }: { isLeft: boolean }) => (
     <motion.div
       animate={{
         background: isLeft
-          ? 'radial-gradient(circle at 0% 50%, rgba(59, 130, 246, 0.15), transparent 50%)'
-          : 'radial-gradient(circle at 100% 50%, rgba(16, 185, 129, 0.15), transparent 50%)',
+          ? 'radial-gradient(circle at 0% 50%, rgba(58, 15, 99, 0.08), transparent 50%)'
+          : 'radial-gradient(circle at 100% 50%, rgba(109, 40, 217, 0.08), transparent 50%)',
       }}
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       className="absolute inset-0"
@@ -150,26 +149,26 @@ const BackgroundGradient = ({ isLeft }: { isLeft: boolean }) => (
   </div>
 );
 
-const ProductVisual = ({ data, isLeft }: { data: ProductData; isLeft: boolean }) => (
+const ProfileVisual = ({ data, isLeft }: { data: ProfileData; isLeft: boolean }) => (
   <motion.div layout="position" className="relative group shrink-0">
     {/* Animated Rings */}
     <motion.div
       animate={{ rotate: 360 }}
-      transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-      className={`absolute inset-[-20%] rounded-full border border-dashed border-white/10 ${data.colors.ring}`}
+      transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+      className={`absolute inset-[-20%] rounded-full border border-dashed border-slate-300 ${data.colors.ring}`}
     />
     <motion.div
       animate={{ scale: [1, 1.05, 1] }}
       transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-      className={`absolute inset-0 rounded-full bg-gradient-to-br ${data.colors.gradient} blur-2xl opacity-40`}
+      className={`absolute inset-0 rounded-full bg-gradient-to-br ${data.colors.gradient} blur-3xl opacity-20`}
     />
 
     {/* Image Container */}
-    <div className="relative h-64 w-64 lg:h-80 lg:w-80 rounded-full border border-white/5 shadow-2xl flex items-center justify-center overflow-hidden bg-black/20 backdrop-blur-sm">
+    <div className="relative h-64 w-64 lg:h-80 lg:w-80 rounded-full border border-slate-200/60 shadow-xl flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-md">
       <motion.div
-        animate={{ y: [-10, 10, -10] }}
+        animate={{ y: [-5, 5, -5] }}
         transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-        className="relative z-10 w-full h-full flex items-center justify-center p-8"
+        className="relative z-10 w-full h-full flex items-center justify-center p-4"
       >
         <AnimatePresence mode="wait">
           <motion.img
@@ -180,7 +179,7 @@ const ProductVisual = ({ data, isLeft }: { data: ProductData; isLeft: boolean })
             initial="initial"
             animate="animate"
             exit="exit"
-            className="w-full h-full object-cover rounded-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+            className="w-full h-full object-cover rounded-full shadow-lg"
             draggable={false}
           />
         </AnimatePresence>
@@ -190,20 +189,20 @@ const ProductVisual = ({ data, isLeft }: { data: ProductData; isLeft: boolean })
     {/* Status Label */}
     <motion.div
       layout="position"
-      className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap"
+      className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap"
     >
-      <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-zinc-500 bg-zinc-950/80 px-4 py-2 rounded-full border border-white/5 backdrop-blur">
-        <span className={`h-1.5 w-1.5 rounded-full ${data.colors.glow} animate-pulse`} />
-        {data.stats.connectionStatus}
+      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#3A0F63] bg-white px-5 py-2.5 rounded-full border border-slate-200 shadow-md">
+        <span className={`h-2 w-2 rounded-full ${data.colors.glow} animate-pulse`} />
+        {data.stats.status}
       </div>
     </motion.div>
   </motion.div>
 );
 
-const ProductDetails = ({ data, isLeft }: { data: ProductData; isLeft: boolean; key?: React.Key }) => {
+const ProfileDetails = ({ data, isLeft }: { data: ProfileData; isLeft: boolean; key?: React.Key }) => {
   const alignClass = isLeft ? 'items-start text-left' : 'items-end text-right';
   const flexDirClass = isLeft ? 'flex-row' : 'flex-row-reverse';
-  const barColorClass = isLeft ? 'left-0 bg-blue-500' : 'right-0 bg-emerald-500';
+  const barColorClass = isLeft ? 'left-0 bg-[#3A0F63]' : 'right-0 bg-violet-600';
 
   return (
     <motion.div
@@ -213,42 +212,42 @@ const ProductDetails = ({ data, isLeft }: { data: ProductData; isLeft: boolean; 
       exit="exit"
       className={`flex flex-col ${alignClass} w-full`}
     >
-      <motion.h2 variants={ANIMATIONS.item} className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-500 mb-2">
-        {data.label} Earbud
+      <motion.h2 variants={ANIMATIONS.item} className="text-sm font-bold uppercase tracking-[0.2em] text-[#3A0F63] mb-2 bg-[#3A0F63]/10 px-3 py-1 rounded-full">
+        {data.label}
       </motion.h2>
-      <motion.h1 variants={ANIMATIONS.item} className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500">
+      <motion.h1 variants={ANIMATIONS.item} className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-slate-900">
         {data.title}
       </motion.h1>
-      <motion.p variants={ANIMATIONS.item} className={`text-zinc-400 mb-8 max-w-sm leading-relaxed text-sm md:text-base ${isLeft ? 'mr-auto' : 'ml-auto'}`}>
+      <motion.p variants={ANIMATIONS.item} className={`text-slate-500 mb-8 max-w-sm leading-relaxed text-sm md:text-base font-medium ${isLeft ? 'mr-auto' : 'ml-auto'}`}>
         {data.description}
       </motion.p>
 
       {/* Feature Grid */}
-      <motion.div variants={ANIMATIONS.item} className="w-full space-y-6 bg-zinc-900/40 p-6 rounded-2xl border border-white/5 backdrop-blur-sm">
+      <motion.div variants={ANIMATIONS.item} className="w-full space-y-6 bg-white/60 p-6 rounded-2xl border border-slate-200 shadow-sm backdrop-blur-md">
         {data.features.map((feature, idx) => (
           <div key={feature.label} className="group">
             <div className={`flex items-center justify-between mb-3 text-sm ${flexDirClass}`}>
-              <div className={`flex items-center gap-2 ${feature.value > 50 ? 'text-zinc-200' : 'text-zinc-400'}`}>
-                <feature.icon size={16} /> <span>{feature.label}</span>
+              <div className={`flex items-center gap-2 text-slate-700 font-semibold`}>
+                <feature.icon size={16} className="text-[#3A0F63]" /> <span>{feature.label}</span>
               </div>
-              <span className="font-mono text-xs text-zinc-500">{feature.value}%</span>
+              <span className="font-mono text-xs font-bold text-[#3A0F63]">{feature.value}%</span>
             </div>
-            <div className="relative h-2 w-full bg-zinc-800 rounded-full overflow-hidden">
+            <div className="relative h-2 w-full bg-slate-100 rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${feature.value}%` }}
                 transition={{ duration: 1, delay: 0.4 + idx * 0.15 }}
-                className={`absolute top-0 bottom-0 ${barColorClass} opacity-80`}
+                className={`absolute top-0 bottom-0 ${barColorClass}`}
               />
             </div>
           </div>
         ))}
       </motion.div>
 
-      {/* Battery */}
-      <motion.div variants={ANIMATIONS.item} className={`mt-6 flex items-center gap-3 text-zinc-500 ${flexDirClass}`}>
-        <Battery size={16} />
-        <span className="text-sm font-medium">{data.stats.batteryLevel}% Charge</span>
+      {/* Status */}
+      <motion.div variants={ANIMATIONS.item} className={`mt-6 flex items-center gap-3 text-slate-600 ${flexDirClass}`}>
+        <Rocket size={18} className="text-[#3A0F63]" />
+        <span className="text-sm font-bold tracking-wide">Output Level: {data.stats.focusLevel}%</span>
       </motion.div>
     </motion.div>
   );
@@ -261,34 +260,27 @@ const Switcher = ({
   activeId: ProductId; 
   onToggle: (id: ProductId) => void 
 }) => {
-  const options = Object.values(PRODUCT_DATA).map(p => ({ id: p.id, label: p.label }));
+  const options = Object.values(PROFILE_DATA).map(p => ({ id: p.id, label: p.label }));
 
   return (
-    <div className="absolute bottom-8 inset-x-0 flex justify-center z-50 pointer-events-none">
-      <motion.div layout className="pointer-events-auto flex items-center gap-1 p-1.5 rounded-full bg-zinc-900/80 backdrop-blur-2xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] ring-1 ring-white/5">
+    <div className="absolute bottom-6 inset-x-0 flex justify-center z-50 pointer-events-none">
+      <motion.div layout className="pointer-events-auto flex items-center gap-2 p-1.5 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 shadow-xl">
         {options.map((opt) => (
           <button
             key={opt.id}
             onClick={() => onToggle(opt.id)}
-            className="relative w-24 h-12 rounded-full flex items-center justify-center text-sm font-medium focus:outline-none"
+            className="relative w-32 h-12 rounded-full flex items-center justify-center text-sm font-bold focus:outline-none transition-colors"
           >
             {activeId === opt.id && (
               <motion.div
-                layoutId="island-surface"
-                className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 to-white/5 shadow-inner"
-                transition={{ type: 'spring', stiffness: 220, damping: 22 }}
+                layoutId="active-pill"
+                className="absolute inset-0 rounded-full bg-[#3A0F63] shadow-md"
+                transition={{ type: 'spring', stiffness: 300, damping: 25 }}
               />
             )}
-            <span className={`relative z-10 transition-colors duration-300 ${activeId === opt.id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}>
+            <span className={`relative z-10 transition-colors duration-300 ${activeId === opt.id ? 'text-white' : 'text-slate-500 hover:text-slate-900'}`}>
               {opt.label}
             </span>
-            {activeId === opt.id && (
-              <motion.span
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="absolute -bottom-1 h-1 w-6 rounded-full bg-gradient-to-r from-transparent via-white/60 to-transparent"
-              />
-            )}
           </button>
         ))}
       </motion.div>
@@ -303,30 +295,30 @@ const Switcher = ({
 export default function EarbudShowcase() {
   const [activeSide, setActiveSide] = useState<ProductId>('left');
   
-  const currentData = PRODUCT_DATA[activeSide];
+  const currentData = PROFILE_DATA[activeSide];
   const isLeft = activeSide === 'left';
 
   return (
-    <div className="relative w-full h-full min-h-[600px] bg-black text-zinc-100 overflow-hidden flex flex-col items-center justify-center rounded-[inherit]">
+    <div className="relative w-full h-full min-h-[600px] bg-[#faf5ff] text-slate-900 flex flex-col items-center justify-center rounded-[inherit]">
       
       <BackgroundGradient isLeft={isLeft} />
 
-      <main className="relative z-10 w-full h-full px-6 py-12 pb-24 flex flex-col justify-center">
+      <main className="relative z-10 w-full h-full px-6 py-12 pb-28 flex flex-col justify-center">
         <motion.div
           layout
           transition={{ type: 'spring', bounce: 0, duration: 0.9 }}
-          className={`flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24 w-full ${
+          className={`flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 w-full ${
             isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'
           }`}
         >
           {/* Left Column: Visuals */}
-          <ProductVisual data={currentData} isLeft={isLeft} />
+          <ProfileVisual data={currentData} isLeft={isLeft} />
 
           {/* Right Column: Content */}
           <motion.div layout="position" className="w-full max-w-md">
             <AnimatePresence mode="wait">
-              <ProductDetails 
-                key={activeSide} // Key forces re-render for animation
+              <ProfileDetails 
+                key={activeSide} 
                 data={currentData} 
                 isLeft={isLeft} 
               />
