@@ -317,8 +317,7 @@ export default function App() {
               />
             </motion.div>
             
-            {/* AGGRESSIVE BRANDING MASK - Primary Glow */}
-            <div className="absolute -bottom-2 -right-4 w-[260px] h-[80px] bg-primary/20 blur-3xl z-[9999] pointer-events-none opacity-95" />
+
 
             {/* Background Glow - Seamless blend */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-primary/5 blur-[120px] -z-10 rounded-full opacity-40" />
