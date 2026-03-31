@@ -227,7 +227,7 @@ export default function OrbitingServices() {
   const activeService = services.find(s => s.id === activeId);
 
   return (
-    <div className="w-full flex items-center justify-center overflow-hidden py-12 relative min-h-[500px]">
+    <div className="w-full flex items-center justify-center overflow-hidden py-8 relative min-h-[500px]">
       <div 
         className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px] flex items-center justify-center"
         onMouseEnter={() => setIsPaused(true)}
