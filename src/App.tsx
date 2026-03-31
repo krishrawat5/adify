@@ -466,7 +466,7 @@ export default function App() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative w-full aspect-[4/3] lg:w-[440px] lg:min-w-[440px] mx-auto rounded-[24px] overflow-hidden group shadow-xl ring-1 ring-black/5"
+                className="relative w-full aspect-[4/3] lg:w-[380px] lg:min-w-[380px] mx-auto rounded-[24px] overflow-hidden group shadow-xl ring-1 ring-black/5"
               >
                 <video
                   src="https://res.cloudinary.com/dtzo88csm/video/upload/v1774899653/marketing_video_yes6gn.mp4"
@@ -569,7 +569,7 @@ export default function App() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative w-full aspect-[4/3] lg:w-[440px] lg:min-w-[440px] mx-auto rounded-[24px] overflow-hidden group shadow-xl ring-1 ring-black/5 order-1 lg:order-2"
+                className="relative w-full aspect-[4/3] lg:w-[380px] lg:min-w-[380px] mx-auto rounded-[24px] overflow-hidden group shadow-xl ring-1 ring-black/5 order-1 lg:order-2"
               >
                 {/* Blurred Background Video Layer */}
                 <video
@@ -621,7 +621,7 @@ export default function App() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative w-full aspect-[4/3] lg:w-[440px] lg:min-w-[440px] mx-auto rounded-[24px] overflow-hidden group shadow-xl ring-1 ring-black/5"
+                className="relative w-full aspect-[4/3] lg:w-[380px] lg:min-w-[380px] mx-auto rounded-[24px] overflow-hidden group shadow-xl ring-1 ring-black/5"
               >
                 <video
                   src="https://res.cloudinary.com/dtzo88csm/video/upload/v1774897694/automation_video_eevmht.mp4"
@@ -724,7 +724,7 @@ export default function App() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative w-full aspect-[4/3] lg:w-[440px] lg:min-w-[440px] mx-auto rounded-[24px] overflow-hidden group shadow-xl ring-1 ring-black/5 order-1 lg:order-2"
+                className="relative w-full aspect-[4/3] lg:w-[380px] lg:min-w-[380px] mx-auto rounded-[24px] overflow-hidden group shadow-xl ring-1 ring-black/5 order-1 lg:order-2"
               >
                 <video
                   src="https://res.cloudinary.com/dtzo88csm/video/upload/v1774898094/web_dev_video_hoheur.mp4"
@@ -763,7 +763,7 @@ export default function App() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative w-full aspect-[4/3] lg:w-[440px] lg:min-w-[440px] mx-auto rounded-[24px] overflow-hidden group shadow-xl ring-1 ring-black/5"
+                className="relative w-full aspect-[4/3] lg:w-[380px] lg:min-w-[380px] mx-auto rounded-[24px] overflow-hidden group shadow-xl ring-1 ring-black/5"
               >
                 <video
                   src="https://res.cloudinary.com/dtzo88csm/video/upload/v1774897169/seo_video_dgkbor.mp4"
