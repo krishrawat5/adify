@@ -22,6 +22,10 @@
     overflow-x: hidden;
   }
   
+  section, header {
+    scroll-margin-top: 100px; /* Offset for fixed navbar */
+  }
+  
   body {
     @apply font-sans;
     color: var(--text-main);

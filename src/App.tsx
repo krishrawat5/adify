@@ -106,7 +106,15 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['Services', 'Clients', 'About', 'Why Adify', 'Reviews', 'FAQs'];
+  const navItems = [
+    { label: 'Home', id: 'home' },
+    { label: 'Services', id: 'services' },
+    { label: 'Clients', id: 'clients' },
+    { label: 'About', id: 'about', path: '/about' },
+    { label: 'Why Adify', id: 'why' },
+    { label: 'Reviews', id: 'reviews' },
+    { label: 'FAQs', id: 'faqs' }
+  ];
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-4' : 'py-8'} header`}>
@@ -119,11 +127,11 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <Link 
-                key={item} 
-                to={item === 'About' ? '/about' : `/#${item.toLowerCase().replace(' ', '-')}`}
+                key={item.label} 
+                to={item.path || `/#${item.id}`}
                 className="text-[13px] font-semibold text-slate-500 hover:text-slate-900 transition-colors tracking-wide"
               >
-                {item}
+                {item.label}
               </Link>
             ))}
           </div>
@@ -167,12 +175,12 @@ const Navbar = () => {
             <div className="glass rounded-2xl p-6 flex flex-col gap-4 shadow-2xl">
               {navItems.map((item) => (
                 <Link
-                  key={item}
-                  to={item === 'About' ? '/about' : `/#${item.toLowerCase().replace(' ', '-')}`}
+                  key={item.label}
+                  to={item.path || `/#${item.id}`}
                   className="text-2xl font-bold text-slate-900 border-b border-purple-100 pb-4"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
               <hr className="border-slate-200" />
@@ -205,7 +213,7 @@ const WhyAdify = () => {
   ];
 
   return (
-    <section id="why-adify" className="py-8 relative">
+    <section id="why" className="py-8 relative">
       <div className="container-custom">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
@@ -339,7 +347,7 @@ export default function App() {
       <Navbar />
 
       {/* Hero Section */}
-      <header className="hero relative overflow-hidden">
+      <header id="home" className="hero relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <GeometricBackground />
         </div>
@@ -432,7 +440,7 @@ export default function App() {
       </header>
 
       {/* Clients Section (Animated Logo Cloud) */}
-      <section className="py-8 border-b border-white relative z-10">
+      <section id="clients" className="py-8 border-b border-white relative z-10">
         <div className="container-custom">
           <div className="w-full">
             <h2 className="mb-5 text-center">
@@ -448,7 +456,9 @@ export default function App() {
         </div>
       </section>
 
-      <InteractiveServices />
+      <section id="services">
+        <InteractiveServices />
+      </section>
 
       {/* Strategic Marketing Detail Section */}
       <section id="strategic-marketing" className="py-8 relative">
