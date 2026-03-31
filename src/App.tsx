@@ -28,6 +28,7 @@ import AboutAdify from './components/AboutAdify';
 import { GeometricBackground } from '@/components/ui/shape-landing-hero';
 import Spline from '@splinetool/react-spline';
 
+
 import { CircularTestimonials } from './components/ui/circular-testimonials';
 import { InteractiveGlobe } from './components/ui/interactive-globe';
 import { ParticleHero } from './components/ui/particle-hero';
@@ -304,26 +305,23 @@ export default function App() {
 
           <div className="hero-right relative z-10">
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9, x: 180 }}
-              animate={{ opacity: 1, scale: 1.15, x: 140 }}
+              initial={{ opacity: 0, scale: 0.9, x: 30 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full h-full cursor-pointer relative z-10 flex items-center justify-center min-h-[450px] lg:min-h-[550px]"
+              className="w-full h-full cursor-pointer relative z-10 flex items-center justify-center min-h-[400px] lg:min-h-[500px]"
               data-cursor-text="Explore"
             >
               <Spline 
-                scene="https://prod.spline.design/5GILnYNHh7m1Zme9/scene.splinecode" 
+                scene="https://prod.spline.design/1k3jiQf0UnFKbYyR/scene.splinecode"
                 style={{ background: 'transparent', width: '100%', height: '100%' }}
               />
             </motion.div>
             
             {/* AGGRESSIVE BRANDING MASK - Primary Glow */}
-            <div className="absolute -bottom-6 -right-8 w-[400px] h-[150px] bg-primary/25 blur-[60px] z-[9999] pointer-events-none opacity-95" />
+            <div className="absolute -bottom-2 -right-4 w-[260px] h-[80px] bg-primary/20 blur-3xl z-[9999] pointer-events-none opacity-95" />
 
             {/* Background Glow - Seamless blend */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] h-[180%] bg-primary/8 blur-[160px] -z-10 rounded-full opacity-50" />
-            
-            {/* Secondary ambient glow */}
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-purple-500/10 blur-[100px] -z-10 rounded-full opacity-60" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-primary/5 blur-[120px] -z-10 rounded-full opacity-40" />
           </div>
         </div>
 
