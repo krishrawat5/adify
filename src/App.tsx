@@ -21,6 +21,7 @@ import {
   Play
 } from 'lucide-react';
 import CustomCursor from './components/CustomCursor';
+import ScrollIndicator from './components/ScrollIndicator';
 import MagneticButton from './components/MagneticButton';
 import AdifyLogo from './components/AdifyLogo';
 import { InteractiveServices } from './components/InteractiveServices';
@@ -242,12 +243,11 @@ const Navbar = () => {
 // --- Main App ---
 
 export default function App() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 50]);
 
   return (
-    <div className="min-h-screen selection:bg-primary selection:text-white">
+    <div className="min-h-screen selection:bg-primary selection:text-white relative">
       <CustomCursor />
+      <ScrollIndicator />
       <Navbar />
 
       {/* Hero Section */}
@@ -303,7 +303,7 @@ export default function App() {
           </div>
         </motion.div>
 
-          <div className="hero-right relative z-10 overflow-visible">
+          <div className="hero-right relative z-10 overflow-visible lg:translate-x-[10%] xl:translate-x-[15%]">
             <motion.div 
               initial={{ opacity: 0, scale: 0.9, x: 30 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -316,18 +316,11 @@ export default function App() {
                 style={{ background: 'transparent', width: '100%', height: '100%', pointerEvents: 'none' }}
               />
             </motion.div>
-            
-            {/* AGGRESSIVE BRANDING MASK - Primary Glow */}
-            <div className="absolute -bottom-2 -right-4 w-[260px] h-[80px] bg-primary/20 blur-3xl z-[9999] pointer-events-none opacity-95" />
-
-            {/* Background Glow - Seamless blend */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-primary/5 blur-[120px] -z-10 rounded-full opacity-40" />
           </div>
         </div>
 
         {/* Curved Divider */}
-        <motion.div 
-          style={{ y }}
+        <div 
           className="absolute bottom-0 left-0 w-full leading-[0] z-20 pointer-events-none"
         >
           <svg 
@@ -340,7 +333,7 @@ export default function App() {
               d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z"
             ></path>
           </svg>
-        </motion.div>
+        </div>
       </header>
 
       {/* Clients Section (Animated Logo Cloud) */}
@@ -815,7 +808,7 @@ export default function App() {
             className="premium-card rounded-3xl md:rounded-[32px] p-6 md:p-12 lg:py-[40px] lg:px-[60px] overflow-hidden"
           >
             <div className="text-left mb-16 space-y-4 relative z-10">
-              <h2 className="text-4xl md:text-7xl font-bold text-slate-900 tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1]">
                 Client <span className="text-gradient">Success Stories</span>
               </h2>
               <p className="text-slate-500 text-lg font-medium max-w-2xl">
@@ -934,7 +927,7 @@ export default function App() {
       <section id="reviews" className="py-8">
         <div className="container-custom">
           <div className="text-left mb-20 space-y-6">
-            <h2 className="text-4xl md:text-7xl font-bold text-slate-900 tracking-tight">Client <span className="text-gradient">Success.</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1]">Client <span className="text-gradient">Success.</span></h2>
             <p className="text-slate-500 text-lg font-medium max-w-2xl">
               Don't just take our word for it. See what our clients have to say about their growth journey with Adify.
             </p>
@@ -976,7 +969,7 @@ export default function App() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-[1fr,2fr] gap-16">
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1]">Common <span className="text-gradient">Questions.</span></h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1]">Common <span className="text-gradient">Questions.</span></h2>
               <p className="text-slate-500 text-lg font-medium leading-relaxed">
                 Everything you need to know about working with us and how we help you scale.
               </p>
