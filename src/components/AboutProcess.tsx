@@ -49,7 +49,7 @@ const AboutProcess = () => {
     // Exact staircase diagonal layout from left to right, snaking back
     const cxPattern = [200, 600, 1000, 600, 200];
     const cx = cxPattern[i];
-    const cy = 250 + i * 250; 
+    const cy = 200 + i * 160; 
     return { ...step, cx, cy };
   });
 
@@ -75,7 +75,7 @@ const AboutProcess = () => {
      }
   }
 
-  const svgHeight = cards[cards.length - 1].cy + 150;
+  const svgHeight = cards[cards.length - 1].cy + 80;
 
   return (
     <section ref={containerRef} className="w-full bg-[#0B0B0F] py-6 relative overflow-hidden" style={{ minHeight: svgHeight }}>

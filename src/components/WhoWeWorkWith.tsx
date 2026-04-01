@@ -20,7 +20,7 @@ const WhoWeWorkWith = () => {
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay pointer-events-none z-0" />
 
       {/* Hero Header Context */}
-      <div className="w-full relative z-20 flex flex-col items-center pt-10">
+      <div className="w-full relative z-20 flex flex-col items-center pt-0">
         
         {/* Title Group */}
         <motion.div
@@ -30,7 +30,7 @@ const WhoWeWorkWith = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center flex flex-col items-center relative z-20 mb-14"
         >
-          <h2 className="text-white text-5xl md:text-6xl font-[900] tracking-tight mb-6 mt-10">
+          <h2 className="text-white text-5xl md:text-6xl font-[900] tracking-tight mb-6 mt-0">
             Who We Work With
           </h2>
           <p className="text-slate-400 text-lg md:text-xl font-medium max-w-2xl leading-relaxed px-4">
