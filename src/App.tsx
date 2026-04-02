@@ -34,6 +34,7 @@ import { CircularTestimonials } from './components/ui/circular-testimonials';
 import { InteractiveGlobe } from './components/ui/interactive-globe';
 import { ParticleHero } from './components/ui/particle-hero';
 import { LogoCloud } from './components/ui/logo-cloud-4';
+import { Footer } from './components/ui/footer-section';
 
 const services = [
   "Web Development",
@@ -309,7 +310,7 @@ export default function App() {
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="w-full h-full relative z-10 flex items-center justify-center min-h-[600px] lg:min-h-[800px] pointer-events-none"
-              style={{ transform: 'scale(2.5) translateY(500px)', transformOrigin: 'center center' }}
+              style={{ transform: 'scale(5.5) translateY(780px)', transformOrigin: 'center center' }}
             >
               <Spline 
                 scene="https://prod.spline.design/Jhk1LTvUCMVtZoWx/scene.splinecode"
@@ -1006,22 +1007,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-slate-100">
-        <div className="container-custom flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-slate-900 rounded-xl flex items-center justify-center">
-              <Zap className="text-white w-4 h-4" />
-            </div>
-            <span className="text-lg font-bold text-slate-900">Adify</span>
-          </div>
-          <p className="text-slate-400 text-xs font-medium uppercase tracking-widest">© 2026 Adify Marketing Agency</p>
-          <div className="flex gap-10">
-            {['Twitter', 'LinkedIn', 'Instagram'].map(social => (
-              <a key={social} href="#" className="text-[11px] font-bold text-slate-400 hover:text-slate-900 transition-colors uppercase tracking-[0.2em]">{social}</a>
-            ))}
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
